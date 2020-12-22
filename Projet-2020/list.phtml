@@ -1,0 +1,14 @@
+<ol>
+    <? foreach ($posts as $post) { ?>
+        <li>
+            <?= $post->getDateTime() ?>
+            <a href="view.php?<?= $post->getID() ?>">
+                <?= $post->getTitle() ?> par <?= $post->getName() ?>
+            </a>
+            <? if (isOwner($post)) { ?>
+            [<a href="post-update.php?"<?= $post->getID() ?>>Modifier</a>]
+            [<a href="post-delete.php?"<?= $post->getID() ?>>Supprimer</a]
+                <? } ?>
+        </li>
+    <? } ?>
+</ol>

@@ -1,0 +1,11 @@
+<div>
+    <a href="list.php"><< Retour</a>
+</div>
+<h3><?= $post->getTitle() ?></h3>
+<p><?= $post->getUserame() ?> - <?= $post->getDateTime() ?></p>
+<p><?= $post->getContent() ?></p>
+<hr>
+<? if (isOwner($post)) { ?>
+    [<a href="post-update.php?"<?= $post->getID() ?>>Modifier</a>]
+    [<a href="post-delete.php?"<?= $post->getID() ?>>Supprimer</a>]
+<? } ?>

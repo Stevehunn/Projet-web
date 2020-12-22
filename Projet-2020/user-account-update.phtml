@@ -1,0 +1,39 @@
+<form action="do-update-account.php" method="post">
+    <div>
+        Nom d'utilisateur :<br>
+        <input type="text" name="username" value="<?php echo $my_data["username"] ?>" size="30" placeholder="" required>
+    </div>
+    <div>
+        <br>
+    </div>
+    <div>
+        Mot de passe :<br>
+        <input type="password" name="password" value="" size="30" placeholder="" required>
+    </div>
+    <div>
+        <br>
+    </div>
+    <div>
+        Prénom :<br>
+        <input type="text" name="firstname" value="<?php echo $my_data["firstname"] ?>" size="30" placeholder=""
+               required>
+    </div>
+    <div>
+        <br>
+    </div>
+    <div>
+        Nom de famille :<br>
+        <input type="text" name="lastname" value="<?php echo $my_data["lastname"] ?>" size="30" placeholder="" required>
+    </div>
+    <div>
+        <br>
+    </div>
+    <div>
+        E-mail :<br>
+        <input type="text" name="email" value="<?php echo $my_data["email"] ?>" size="30" placeholder="" required>
+    </div>
+    <div>
+        <br>
+    </div>
+    <input type="submit" name="submit" value="Modifier">
+</form>
