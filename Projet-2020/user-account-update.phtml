@@ -1,7 +1,7 @@
 <form action="user-account-update.php" method="post">
     <div>
         Nom d'utilisateur :<br>
-        <input type="text" name="username" value="<?php echo $my_data["username"] ?>" size="30" placeholder="" required>
+        <input type="text" name="username" value="<?php echo $user->getUsername() ?>" size="30" placeholder="" required>
     </div>
     <div>
         <br>
@@ -15,7 +15,7 @@
     </div>
     <div>
         Prénom :<br>
-        <input type="text" name="firstname" value="<?php echo $my_data["firstname"] ?>" size="30" placeholder=""
+        <input type="text" name="firstname" value="<?php echo $user->getFirstname() ?>" size="30" placeholder=""
                required>
     </div>
     <div>
@@ -23,14 +23,14 @@
     </div>
     <div>
         Nom de famille :<br>
-        <input type="text" name="lastname" value="<?php echo $my_data["lastname"] ?>" size="30" placeholder="" required>
+        <input type="text" name="lastname" value="<?php echo $user->getLastname() ?>" size="30" placeholder="" required>
     </div>
     <div>
         <br>
     </div>
     <div>
         E-mail :<br>
-        <input type="text" name="email" value="<?php echo $my_data["email"] ?>" size="30" placeholder="" required>
+        <input type="text" name="email" value="<?php echo $user->getEmail() ?>" size="30" placeholder="" required>
     </div>
     <div>
         <br>

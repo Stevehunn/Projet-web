@@ -11,9 +11,15 @@ if (!isset($_POST["submit"])) {
 session_start();
 session_destroy();
 
+session_start();
 if (doSignUp()) {
-    session_start();
     $_SESSION["last"] = time();
+    header("Location: index.php");
+    exit();
+} else {
+    $_SESSION["return value"] = "Echec de l'inscription, identifiant déjà utilisé. Choisiez un nouvel identifiant. ";
+    header("Location: sign-up.php");
+    exit();
 }
 
 function doSignUp()
@@ -34,10 +40,3 @@ function doSignUp()
 }
 
 
-if (!doSignUp()) {
-    $_SESSION["return value"] = "Echec de l'inscription, identifiant déjà utilisé. Choisiez un nouvel identifiant. ";
-    header("Location: sign-up.php");
-    exit();
-}
-header("Location: index.php");
-exit();

@@ -11,8 +11,8 @@ if (!isset($_POST["submit"])) {
 session_start();
 session_destroy();
 
+session_start();
 if (doSignIn()) {
-    session_start();
     $_SESSION["last"] = time();
 }
 
@@ -30,8 +30,8 @@ function doSignIn()
     if ($result->rowCount()) {
         if ($row = $result->fetch()) {
             $user = new User($row);
-            $user->insert($bdd);
             $_SESSION["user"] = $user;
+            return true;
         }
     }
     // Fin
