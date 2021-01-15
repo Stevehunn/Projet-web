@@ -22,31 +22,37 @@ class Post
 
     public function getID()
     {
+        return $this->ID;
         // TODO
     }
 
     public function getUserID()
     {
+        return $this->userID;
         // TODO
     }
 
     public function getDateTime()
     {
+        return $this->timestamp;
         // TODO
     }
 
     public function getTitle()
     {
+        return $this->title;
         // TODO
     }
 
     public function getContent()
     {
+        return $this->content;
         // TODO
     }
 
     public function getUsername()
     {
+        return $this->username;
         // TODO
     }
 

@@ -1,24 +1,16 @@
 <?php
-require_once "autoload.php";
 
+require_once "autoload.php";
+require_once "session.php";
 include "connect-to-db.php";
 
-if (!isset($_POST["submit"])) {
-    header("Location: index.php");
+if (!isset($_SESSION["user"])) {
+    header("Location: sign-in.php");
     exit();
 }
 
-session_start();
-session_destroy();
-
-if (doSignUp()) {
-    session_start();
-    $_SESSION["last"] = time();
-}
-
-function doSignUp()
+function doUpdate()
 {
-    //TODO
     $bdd = connect_to_db();
     $username = $_POST["username"];
     $sql2 = "SELECT username from user where username='$username'";
@@ -32,12 +24,3 @@ function doSignUp()
     return false;
     // Fin
 }
-
-
-if (!doSignUp()) {
-    $_SESSION["return value"] = "Echec de l'inscription, identifiant déjà utilisé. Choisiez un nouvel identifiant. ";
-    header("Location: sign-up.php");
-    exit();
-}
-header("Location: index.php");
-exit();

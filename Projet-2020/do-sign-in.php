@@ -24,18 +24,14 @@ function doSignIn()
     $username = $_POST["username"];
     $password = md5($_POST["password"]);
 
-    // TODO
-
     $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
     $bdd = connect_to_db();
     $result = $bdd->query($sql);
     if ($result->rowCount()) {
         if ($row = $result->fetch()) {
-            session_start();
-            foreach ($row as $key => $value) {
-                $_SESSION[$key] = $value;
-            }
-            return true;
+            $user = new User($row);
+            $user->insert($bdd);
+            $_SESSION["user"] = $user;
         }
     }
     // Fin
