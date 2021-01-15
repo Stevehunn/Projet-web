@@ -22,32 +22,32 @@ class Post
 
     public function getID()
     {
-        // TODO
+        return $ID;
     }
 
     public function getUserID()
     {
-        // TODO
+        return $userID;
     }
 
     public function getDateTime()
     {
-        // TODO
+        return $timestamp;
     }
 
     public function getTitle()
     {
-        // TODO
+        return $title;
     }
 
     public function getContent()
     {
-        // TODO
+        return $content;
     }
 
     public function getUsername()
     {
-        // TODO
+        return $username;
     }
 
     public function getComments()
