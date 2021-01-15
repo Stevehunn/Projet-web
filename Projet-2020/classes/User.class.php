@@ -44,11 +44,12 @@ class User
         // TODO
     }
 
-    public function insert($dbh)
+    public function insert($bdd)
     {
         // TODO
         // Insert a new record to the database handled by $dbh.
         // $dbh can be an instance of mysqli or of PDO.
+
     }
 
     public function update($dbh)
