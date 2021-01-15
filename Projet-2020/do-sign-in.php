@@ -1,6 +1,8 @@
 <?php
 require_once "autoload.php";
 
+include "connect-to-db.php";
+
 if (!isset($_POST["submit"])) {
     header("Location: index.php");
     exit();
@@ -25,10 +27,10 @@ function doSignIn()
     // TODO
 
     $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
-    $mysqli = new mysqli("localhost", "pws", "pws", "pws");
-    if ($result = $mysqli->query($sql)) {
-        if ($row = $result->fetch_assoc()) {
-            // Session, optionnelle
+    $bdd = connect_to_db();
+    $result = $bdd->query($sql);
+    if ($result->rowCount()) {
+        if ($row = $result->fetch()) {
             session_start();
             foreach ($row as $key => $value) {
                 $_SESSION[$key] = $value;
