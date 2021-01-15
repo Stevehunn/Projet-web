@@ -48,6 +48,7 @@ class Post
     {
         return $this->content;
         // TODO
+
     }
 
     public function getUsername()
