@@ -14,46 +14,44 @@ class Post
     public function __construct($data = null)
     {
         $this->timestamp = time();
-        if (is_array($data)) {
-            // TODO
-            // Create a post from an array.
+        if ($data != null && is_array($data)) {
+            $this->ID = $data[0];
+            $this->userID = $data[1];
+            $this->timestamp = $data[2];
+            $this->title = $data[3];
+            $this->content = $data[4];
+            $this->photo = $data[5];
         }
     }
 
     public function getID()
     {
         return $this->ID;
-        // TODO
     }
 
     public function getUserID()
     {
         return $this->userID;
-        // TODO
     }
 
     public function getDateTime()
     {
         return $this->timestamp;
-        // TODO
     }
 
     public function getTitle()
     {
         return $this->title;
-        // TODO
     }
 
     public function getContent()
     {
         return $this->content;
-        // TODO
     }
 
     public function getUsername()
     {
         return $this->username;
-        // TODO
     }
 
     public function getComments()

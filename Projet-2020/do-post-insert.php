@@ -16,6 +16,7 @@ if (!isset($_POST["submit"])) {
 
 function insert_post()
 {
+    /*
     $date = date_create();
     $bdd = connect_to_db();
     $time = date_timestamp_get($date);
@@ -29,6 +30,16 @@ function insert_post()
         return false;
     }
     return true;
+*/
+
+    $bdd = connect_to_db();
+    $date = date_create();
+    $time = date_timestamp_get($date);
+    $post = new Post([0, $_SESSION['user'], $time, $_POST["titreannonce"], $_POST["description"], $_POST["photo"]]);
+    if ($post->insert($bdd)) {
+        return true;
+    }
+    return false;
 }
 
 if (!insert_post()) {

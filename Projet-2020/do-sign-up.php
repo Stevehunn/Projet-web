@@ -24,7 +24,6 @@ if (doSignUp()) {
 
 function doSignUp()
 {
-    //TODO
     $bdd = connect_to_db();
     $username = $_POST["username"];
     $sql2 = "SELECT username from user where username='$username'";
