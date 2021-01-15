@@ -16,9 +16,6 @@ if (doSignUp()) {
     $_SESSION["last"] = time();
 }
 
-header("Location: index.php");
-exit();
-
 function doSignUp()
 {
     //TODO
@@ -35,10 +32,15 @@ function doSignUp()
             return false;
         }
         return true;
-    } else {
-        $messageerreuridentifiant = 'Le nom d\'utilisateur est déjà pris, veuillez réessayer';
-        echo $messageerreuridentifiant;
-        return false;
     }
     // Fin
 }
+
+
+if (!doSignUp()) {
+    $_SESSION["return value"] = "Echec de l'inscription, identifiant déjà utilisé. Choisiez un nouvel identifiant. ";
+    header("Location: sign-up.php");
+    exit();
+}
+header("Location: index.php");
+exit();
