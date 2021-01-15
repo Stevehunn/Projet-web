@@ -30,7 +30,7 @@ function doSignIn()
     if ($result->rowCount()) {
         if ($row = $result->fetch()) {
             $user = new User($row);
-            $_SESSION["user"] = $user;
+            $_SESSION["user"] = $user->getID();
             return true;
         }
     }

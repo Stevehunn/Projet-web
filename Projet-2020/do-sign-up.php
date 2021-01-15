@@ -31,7 +31,7 @@ function doSignUp()
     if (!$bdd->query($sql2)->rowCount()) {
         $user = new User([0, $username, md5($_POST["password"]), $_POST["firstname"], $_POST["lastname"], $_POST["email"]]);
         if ($user->insert($bdd)) {
-            $_SESSION["user"] = $user;
+            $_SESSION["user"] = $user->getID();
             return true;
         }
     }

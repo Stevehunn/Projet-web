@@ -12,7 +12,7 @@ class User
 
     public function __construct($row = null)
     {
-        if (is_array($row)) {
+        if ($row != null && is_array($row)) {
             // Create a user from an array.
             $this->ID = $row[0];
             $this->username = $row[1];

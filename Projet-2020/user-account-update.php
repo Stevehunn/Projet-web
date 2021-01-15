@@ -1,15 +1,18 @@
 <?php
 
-include "connect-to-db.php";
+require_once "session.php";
+require_once "autoload.php";
 
-session_start();
-if (!isset($_SESSION["id"])) {
-    session_destroy();
-    header("Location: index.php");
+include "connect-to-db.php";
+$CAPTION = "Modifier votre profil.";
+
+if (!isset($_SESSION["user"])) {
+    header("Location: sign-in.php");
     exit();
 }
 
-$user = $_SESSION["user"];
+$user_id = $_SESSION["user"];
+$user = new User(connect_to_db()->query("Select * from user where id='$user_id';")->fetch());
 
 require_once "header.phtml";
 
