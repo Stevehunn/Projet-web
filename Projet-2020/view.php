@@ -12,3 +12,8 @@ $CAPTION = "Annonce";
 require_once "header.phtml";
 require_once "view.phtml";
 require_once "footer.phtml";
+
+$CAPTION = "Modifier mon compte";
+require_once "header.phtml";
+require_once "user-account-update.phtml";
+require_once "footer.phtml";
