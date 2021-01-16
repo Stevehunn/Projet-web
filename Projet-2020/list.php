@@ -14,6 +14,7 @@ function isOwner($post)
 $posts = [];
 $results = connect_to_db()->query("SElect * from post;")->fetchAll();
 foreach ($results as $item) {
+    // $item[1] pourait être à recoder car il dépend de la Base de Donnée.
     $post = new Post($item, connect_to_db()->query("SElect username from user where id='$item[1]';")->fetch()[0]);
     if ($post != null) {
         array_push($posts, $post);

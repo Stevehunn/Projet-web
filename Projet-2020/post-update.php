@@ -9,7 +9,6 @@ if (isset($_SESSION["return value"])) {
     unset($_SESSION["return value"]);
 }
 
-
 $post_id = $_GET["id"];
 $post = new Post(connect_to_db()->query("Select * from post where id='$post_id';")->fetch());
 

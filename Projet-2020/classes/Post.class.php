@@ -1,16 +1,45 @@
 <?php
 require_once "autoload.php";
 
+/**
+ * Class Post
+ */
 class Post
 {
+    /**
+     * @var string
+     */
     private $ID = "";
+    /**
+     * @var string
+     */
     private $userID = "";
+    /**
+     * @var int
+     */
     private $timestamp = 0;
+    /**
+     * @var string
+     */
     private $title = "";
+    /**
+     * @var string
+     */
     private $photo = "";
+    /**
+     * @var string
+     */
     private $content = "";
+    /**
+     * @var string
+     */
     private $username = "";
 
+    /**
+     * Post constructor.
+     * @param null $data
+     * @param string $username
+     */
     public function __construct($data = null, $username = "")
     {
         if ($data != null && is_array($data)) {
@@ -24,44 +53,65 @@ class Post
         }
     }
 
+    /**
+     * @return string
+     */
     public function getID()
     {
         return $this->ID;
     }
 
+    /**
+     * @return string
+     */
     public function getUserID()
     {
         return $this->userID;
     }
 
+    /**
+     * @return int
+     */
     public function getDateTime()
     {
         return $this->timestamp;
     }
 
+    /**
+     * @return string
+     */
     public function getTitle()
     {
         return $this->title;
     }
 
+    /**
+     * @return string
+     */
     public function getContent()
     {
         return $this->content;
     }
 
+    /**
+     * @return string
+     */
     public function getUsername()
     {
         return $this->username;
     }
 
     /**
-     * @return mixed|string
+     * @return string
      */
     public function getPhoto()
     {
         return $this->photo;
     }
 
+    /**
+     * @return array
+     */
     public function getComments()
     {
         $comments = [];
@@ -69,6 +119,10 @@ class Post
         return $comments;
     }
 
+    /**
+     * @param $bdd
+     * @return bool
+     */
     public function insert($bdd)
     {
         // Insert a new record to the database handled by $dbh.
@@ -81,25 +135,33 @@ class Post
         return false;
     }
 
+    /**
+     * @param $bdd
+     * @return bool
+     */
     public function update($bdd)
     {
         // Update a record in the database handled by $dbh.
         // $dbh can be an instance of mysqli or of PDO.
         $sql = "UPDATE post SET timestamp='$this->timestamp', title='$this->title', content='$this->content', photo='$this->photo' WHERE id='$this->ID';";
-            if ($bdd->query($sql)->rowCount()) {
-                return true;
-            }
+        if ($bdd->query($sql)->rowCount()) {
+            return true;
+        }
         return false;
     }
 
+    /**
+     * @param $bdd
+     * @return bool
+     */
     public function delete($bdd)
     {
         // Delete a record in the database handled by $dbh.
         // $dbh can be an instance of mysqli or of PDO.
         $sql = "DELETE FROM post WHERE id='$this->ID';";
-            if ($bdd->query($sql)->rowCount()) {
-                return true;
-            }
+        if ($bdd->query($sql)->rowCount()) {
+            return true;
+        }
         return false;
 
     }

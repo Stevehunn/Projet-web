@@ -1,15 +1,40 @@
 <?php
 require_once "autoload.php";
 
+/**
+ * Class User
+ */
 class User
 {
+    /**
+     * @var int
+     */
     private $ID = "";
+    /**
+     * @var string
+     */
     private $username = "";
+    /**
+     * @var string
+     */
     private $password = "";
+    /**
+     * @var string
+     */
     private $firstname = "";
+    /**
+     * @var string
+     */
     private $lastname = "";
+    /**
+     * @var string
+     */
     private $email = "";
 
+    /**
+     * User constructor.
+     * @param null $row
+     */
     public function __construct($row = null)
     {
         if ($row != null && is_array($row)) {
@@ -23,21 +48,33 @@ class User
         }
     }
 
+    /**
+     * @return int
+     */
     public function getID()
     {
         return $this->ID;
     }
 
+    /**
+     * @return string
+     */
     public function getUsername()
     {
         return $this->username;
     }
 
+    /**
+     * @return string
+     */
     public function getPassword()
     {
         return $this->password;
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->firstname . " " . $this->lastname;
@@ -60,11 +97,18 @@ class User
         return $this->lastname;
     }
 
+    /**
+     * @return string
+     */
     public function getEmail()
     {
         return $this->email;
     }
 
+    /**
+     * @param $bdd
+     * @return bool
+     */
     public function insert($bdd)
     {
         // Insert a new record to the database handled by $dbh.
@@ -82,6 +126,10 @@ class User
         return false;
     }
 
+    /**
+     * @param $bdd
+     * @return bool
+     */
     public function update($bdd)
     {
         // Update a record in the database handled by $dbh.

@@ -10,7 +10,6 @@ function isOwner($post)
     return $post->getUserID() == $_SESSION["user"];
 }
 
-
 $post = null;
 $post_id = $_GET["id"];
 $post = new Post(connect_to_db()->query("SELECT * FROM post where id='$post_id';")->fetch());

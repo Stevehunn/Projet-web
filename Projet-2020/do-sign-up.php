@@ -35,7 +35,6 @@ function doSignUp()
         }
     }
     return false;
-    // Fin
 }
 
 

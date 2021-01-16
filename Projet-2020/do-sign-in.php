@@ -34,7 +34,6 @@ function doSignIn()
             return true;
         }
     }
-    // Fin
     session_destroy();
     return false;
 }

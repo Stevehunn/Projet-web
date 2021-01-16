@@ -16,11 +16,6 @@ if (!isset($_POST["submit"])) {
     exit();
 }
 
-/*if (empty($ID)) {
-    header("Location: index.php");
-    exit();
-}*/
-
 function delete_post()
 {
     $bdd = connect_to_db();
