@@ -12,8 +12,8 @@ if (isset($_SESSION["return value"])) {
 
 $post_id = $_GET["id"];
 $post = new Post(connect_to_db()->query("Select * from post where id='$post_id';")->fetch());
-$CAPTION = "Modification de l'annonce";
 
+$CAPTION = "Modification de l'annonce";
 require_once "header.phtml";
 require_once "post-update.phtml";
 require_once "footer.phtml";
