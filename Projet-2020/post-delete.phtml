@@ -1,5 +1,13 @@
 <h1>Suppression d\'une annonce</h1>
+<form method="post" action="do-post-update.php">
+    <fieldset>
+        <input type="hidden" name="id" value="<?php echo $post->getID() ?>" id="id"/>
+
+        <input type="submit" value="Supprimer"/>
+    </fieldset>
+</form>
 
 
+<p><input type="submit" value="Modifier"/></p></form>';
 <?php echo $message; ?>
-}
+

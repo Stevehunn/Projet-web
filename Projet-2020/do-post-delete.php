@@ -21,9 +21,18 @@ if (empty($ID)) {
     exit();
 }
 
-// TODO
+function delete_post()
+{
+    $bdd = connect_to_db();
+    $post_id = $_POST["post"];
+    $post = new Post(connect_to_db()->query("Select * from post where id='$post_id';")->fetch());
+    if ($post->delete($bdd)) {
+        return true;
+    }
+    return false;
+}
 
-if (!insert_post()) {   // TODO
+if (!delete_post()) {
     $_SESSION["return value"] = "Echec de la suppression de l'annonce";
     header("Location: post-delete.php");
     exit();

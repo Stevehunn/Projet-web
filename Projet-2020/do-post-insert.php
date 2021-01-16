@@ -16,22 +16,6 @@ if (!isset($_POST["submit"])) {
 
 function insert_post()
 {
-    /*
-    $date = date_create();
-    $bdd = connect_to_db();
-    $time = date_timestamp_get($date);
-    $title = $_POST["titreannonce"];
-    $content = $_POST["description"];
-    $imagedata = file_get_contents($_POST["photo"]);    // TODO check
-    $base64 = base64_encode($imagedata);
-    $id = $_SESSION["id"];
-    $sql = "INSERT INTO post (user_id,timestamp,title,content,photo) VALUES ('$id', '$time', '$title', '$content', '$base64')";
-    if (!$bdd->query($sql)->rowCount()) {
-        return false;
-    }
-    return true;
-*/
-
     $bdd = connect_to_db();
     $date = date_create();
     $time = date_timestamp_get($date);

@@ -65,48 +65,40 @@ class Post
     {
         // Insert a new record to the database handled by $dbh.
         // $dbh can be an instance of mysqli or of PDO.
-        $date = date_create();
-        $time = date_timestamp_get($date);
-        $title = $_POST["titreannonce"];
-        $content = $_POST["description"];
-        $imagedata = file_get_contents($_POST["photo"]);    // TODO check
-        $base64 = base64_encode($imagedata);
-        $id = $_SESSION["id"];
-        $sql = "INSERT INTO post (user_id,timestamp,title,content,photo) VALUES ('$id', '$time', '$title', '$content', '$base64')";
-        if (!$bdd->query($sql)->rowCount()) {
-            return false;
+        if ($this->ID != "") {
+            $sql = "INSERT INTO post (user_id,timestamp,title,content,photo) VALUES ('$this->userID', '$this->timestamp', '$this->title', '$this->content', '$this->photo')";
+            if ($bdd->query($sql)->rowCount()) {
+                $this->ID = $bdd->query("SELECT ID from post where user_id='$this->userID' AND timestamp='$this->timestamp';")->fetch()[0];
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 
     public function update($bdd)
     {
         // Update a record in the database handled by $dbh.
         // $dbh can be an instance of mysqli or of PDO.
-        $date = date_create();
-        $time = date_timestamp_get($date);
-        $title = $_POST["titreannonce"];
-        $content = $_POST["description"];
-        $imagedata = file_get_contents($_POST["photo"]);    // TODO check
-        $base64 = base64_encode($imagedata);
-        $id = $_SESSION["id"];
-        $sql = "UPDATE post SET id='$id', timestamp='$time', title='$title', content='$content', photo='$base64'";
-        if (!$bdd->query($sql)->rowCount()) {
-            return false;
+        if ($this->ID != "") {
+            $sql = "UPDATE post SET timestamp='$this->timestamp', title='$this->title', content='$this->content', photo='$this->photo' WHERE id='$this->ID'";
+            if ($bdd->query($sql)->rowCount()) {
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 
     public function delete($bdd)
     {
         // Delete a record in the database handled by $dbh.
         // $dbh can be an instance of mysqli or of PDO.
-        $id_annonce = $_POST["id_annonce"];
-        $sql = "DELETE FROM post WHERE id = '$id_annonce'";
-        if (!$bdd->query($sql)->rowCount()) {
-            return false;
+        if ($this->ID != "") {
+            $sql = "DELETE FROM post WHERE id='$this->ID'";
+            if ($bdd->query($sql)->rowCount()) {
+                return true;
+            }
         }
-        return true;
+        return false;
 
     }
 }

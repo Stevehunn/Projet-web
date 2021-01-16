@@ -2,38 +2,40 @@
 <form method="post" action="do-post-update.php">
     <fieldset>
         <legend>Annonce</legend>
+        <input type="hidden" name="id" value="<?php echo $post->getID() ?>" id="id"/>
         <table>
             <td align="right">
-                <label for="titreannonce">Titre de l\'annoce :</label>
+                <label for="titreannonce">Titre de l\'annonce :</label>
             </td>
             <td>
-                <input type="text" name="titreannonce" id="titreannonce"/><br/>
+                <input type="text" name="titreannonce" value="<?php echo $post->getTitle() ?>" id="titreannonce"/><br/>
             </td>
         </table>
-        <tr>
-            <td align="right">
-                <label for="Description">Description du scp :</label>
-            </td>
-            <td>
-                <input type="text" name="Description" id="Description"/>
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <label for="Photo">Photo</label>
-            </td>
-            <td>
-                <input type="hidden" name="MAX_FILE_SIZE" value="250000"/>
-                <input type="file" name="fic" size=50/>
-                <input type="submit" value="Envoyer"/>
+        <table>
+            <tr>
+                <td align="right">
+                    <label for="description">Description :</label>
+                </td>
+                <td>
+                    <input type="text" name="description" value="<?php echo $post->getContent() ?>" id="description"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <label for="photo">Photo</label>
+                </td>
+                <td>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="250000"/>
+                    <input type="file" name="fic" size=50/>
+                    <input type="submit" value="Envoyer"/>
+                </td>
+            </tr>
+            </tr>
+        </table>
+    </fieldset>
 </form>
-</td>
-</tr>
 
-</table>
-</fieldset>
 
 <p><input type="submit" value="Modifier"/></p></form>';
 <?php echo $message; ?>
 
-}
