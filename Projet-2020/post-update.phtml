@@ -1,5 +1,5 @@
 <h1>Modification d'une annonce</h1>
-<form method="post" action="do-post-update.php">
+<form method="post" action="do-post-update.php" enctype="multipart/form-data">
     <fieldset>
         <legend>Annonce</legend>
         <input type="hidden" name="id" value="<?php echo $post->getID() ?>" id="id"/>

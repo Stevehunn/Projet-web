@@ -7,18 +7,14 @@ include "connect-to-db.php";
 
 function isOwner($post)
 {
-    if ($post->getID() == $_SESSION["user"]) {
-        return true;
-    } else {
-        return false;
-    }
+    return $post->getUserID() == $_SESSION["user"];
     // Return true if user is the owner of the $post
 }
 
 $posts = [];
 $results = connect_to_db()->query("SElect * from post;")->fetchAll();
 foreach ($results as $item) {
-    $post = new Post($item);
+    $post = new Post($item, connect_to_db()->query("SElect username from user where id='$item[1]';")->fetch()[0]);
     if ($post != null) {
         array_push($posts, $post);
     }

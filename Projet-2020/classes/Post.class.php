@@ -11,7 +11,7 @@ class Post
     private $content = "";
     private $username = "";
 
-    public function __construct($data = null)
+    public function __construct($data = null, $username = "")
     {
         if ($data != null && is_array($data)) {
             $this->ID = $data[0];
@@ -20,6 +20,7 @@ class Post
             $this->title = $data[3];
             $this->content = $data[4];
             $this->photo = $data[5];
+            $this->username = $username;
         }
     }
 
@@ -51,6 +52,14 @@ class Post
     public function getUsername()
     {
         return $this->username;
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
     }
 
     public function getComments()

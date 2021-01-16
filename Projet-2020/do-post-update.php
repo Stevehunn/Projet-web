@@ -18,9 +18,9 @@ function update_post()
 {
     $bdd = connect_to_db();
     $time = date_timestamp_get(date_create());
-    $file_tmp = $_FILES['fileToUpload']['tmp_name'];
-    $data = file_get_contents($file_tmp);
-    $base64 = base64_encode($data);
+    $img_file = $_FILES['fileToUpload']['tmp_name'];
+    $imgData = base64_encode(file_get_contents($img_file));
+    $base64 = 'data:' . mime_content_type($img_file) . ';base64,' . $imgData;
     $post = new Post([$_POST["id"], $_SESSION['user'], $time, $_POST["titreannonce"], $_POST["description"], $base64]);
     if ($post->update($bdd)) {
         return true;

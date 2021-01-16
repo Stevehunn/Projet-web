@@ -1,18 +1,17 @@
 <ol>
-    <? if (sizeof($posts)) {
-        foreach ($posts as $post) { ?>
-            <li>
-                <?= $post->getDateTime() ?>
-                <a href="view.php?id=<?= $post->getID() ?>">
-                    <?= $post->getTitle(); ?> par <?= $post->getUsername(); ?>
-                </a>
-                <? if (isOwner($post)) { ?>
-                    [<a href="post-update.php?id=<?= $post->getID(); ?>">Modifier</a>]
-                                                                                     [<a
-                            href="post-delete.php?id=<?= $post->getID(); ?>">Supprimer</a>]
-                <? } ?>
-            </li>
-        <? }
-    } ?>
+    <?php foreach ($posts as $post) { ?>
+        <li>
+            <?= $post->getDateTime() ?>
+            <a href="view.php?id=<?= $post->getID() ?>">
+                <?= $post->getTitle(); ?> par <?= $post->getUsername(); ?>
+            </a>
+            <?php if (isOwner($post)) { ?>
+                [<a href="post-update.php?id=<?= $post->getID(); ?>">Modifier</a>]
+                                                                                 [<a
+                        href="post-delete.php?id=<?= $post->getID(); ?>">Supprimer</a>]
+            <?php } ?>
+        </li>
+    <?php } ?>
 </ol>
+
 [<a href="post-insert.php?">Ajouter une annonce</a>]
