@@ -13,7 +13,6 @@ class Post
 
     public function __construct($data = null)
     {
-        $this->timestamp = time();
         if ($data != null && is_array($data)) {
             $this->ID = $data[0];
             $this->userID = $data[1];
@@ -65,12 +64,10 @@ class Post
     {
         // Insert a new record to the database handled by $dbh.
         // $dbh can be an instance of mysqli or of PDO.
-        if ($this->ID != "") {
-            $sql = "INSERT INTO post (user_id,timestamp,title,content,photo) VALUES ('$this->userID', '$this->timestamp', '$this->title', '$this->content', '$this->photo')";
-            if ($bdd->query($sql)->rowCount()) {
-                $this->ID = $bdd->query("SELECT ID from post where user_id='$this->userID' AND timestamp='$this->timestamp';")->fetch()[0];
-                return true;
-            }
+        $sql = "INSERT INTO post (user_id,timestamp,title,content,photo) VALUES ('$this->userID', '$this->timestamp', '$this->title', '$this->content', '$this->photo')";
+        if ($bdd->query($sql)->rowCount()) {
+            $this->ID = $bdd->query("SELECT ID from post where user_id='$this->userID' AND timestamp='$this->timestamp';")->fetch()[0];
+            return true;
         }
         return false;
     }
@@ -79,12 +76,10 @@ class Post
     {
         // Update a record in the database handled by $dbh.
         // $dbh can be an instance of mysqli or of PDO.
-        if ($this->ID != "") {
             $sql = "UPDATE post SET timestamp='$this->timestamp', title='$this->title', content='$this->content', photo='$this->photo' WHERE id='$this->ID'";
             if ($bdd->query($sql)->rowCount()) {
                 return true;
             }
-        }
         return false;
     }
 
@@ -92,12 +87,10 @@ class Post
     {
         // Delete a record in the database handled by $dbh.
         // $dbh can be an instance of mysqli or of PDO.
-        if ($this->ID != "") {
             $sql = "DELETE FROM post WHERE id='$this->ID'";
             if ($bdd->query($sql)->rowCount()) {
                 return true;
             }
-        }
         return false;
 
     }

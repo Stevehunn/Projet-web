@@ -1,11 +1,11 @@
-<h1>Modification d\'une annonce</h1>
+<h1>Modification d'une annonce</h1>
 <form method="post" action="do-post-update.php">
     <fieldset>
         <legend>Annonce</legend>
         <input type="hidden" name="id" value="<?php echo $post->getID() ?>" id="id"/>
         <table>
             <td align="right">
-                <label for="titreannonce">Titre de l\'annonce :</label>
+                <label for="titreannonce">Titre de l'annonce :</label>
             </td>
             <td>
                 <input type="text" name="titreannonce" value="<?php echo $post->getTitle() ?>" id="titreannonce"/><br/>
@@ -26,16 +26,16 @@
                 </td>
                 <td>
                     <input type="hidden" name="MAX_FILE_SIZE" value="250000"/>
-                    <input type="file" name="fic" size=50/>
-                    <input type="submit" value="Envoyer"/>
+                    <input type="file" name="fileToUpload" size=50/>
+
                 </td>
             </tr>
             </tr>
         </table>
+        <input type="submit" name="submit" value="Modifier"/>
     </fieldset>
 </form>
 
 
-<p><input type="submit" value="Modifier"/></p></form>';
 <?php echo $message; ?>
 

@@ -1,10 +1,10 @@
-<h1>Insertion d\'une annonce</h1>
+<h1>Insertion d'une annonce</h1>
 <form method="post" action="do-post-insert.php">
     <fieldset>
         <legend>Annonce</legend>
         <table>
             <td align="right">
-                <label for="titreannonce">Titre de l\'annonce :</label>
+                <label for="titreannonce">Titre de l'annonce :</label>
             </td>
             <td>
                 <input type="text" name="titreannonce" id="titreannonce"/><br/>
@@ -13,7 +13,7 @@
         <table>
             <tr>
                 <td align="right">
-                    <label for="description">Description du scp :</label>
+                    <label for="description">Description :</label>
                 </td>
                 <td>
                     <input type="text" name="description" id="description"/>
@@ -25,17 +25,16 @@
                 </td>
                 <td>
                     <input type="hidden" name="MAX_FILE_SIZE" value="250000"/>
-                    <input type="file" name="fic" size=50/>
-                    <input type="submit" value="Envoyer"/>
+                    <input type="file" name="fileToUpload" size=50/>
+                    <!--<input type="submit" value="Envoyer"/>-->
                 </td>
             </tr>
         </table>
+        <p><input type="submit" name="submit" value="Soumettre"/></p>
     </fieldset>
 </form>
 
 
-<p><input type="submit" value="Soumettre"/></p></form>';
+
 
 <?php echo $message; ?>
-
-}
