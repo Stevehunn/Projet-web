@@ -6,7 +6,7 @@ include "connect-to-db.php";
 $ID = $_SERVER["QUERY_STRING"];
 
 
-if (!isset($_SESSION["id"])) {
+if (!isset($_SESSION["user"])) {
     header("Location: sign-in.php");
     exit();
 }
@@ -16,20 +16,17 @@ if (!isset($_POST["submit"])) {
     exit();
 }
 
-if (empty($ID)) {
+/*if (empty($ID)) {
     header("Location: index.php");
     exit();
-}
+}*/
 
 function delete_post()
 {
     $bdd = connect_to_db();
     $post_id = $_POST["post"];
     $post = new Post(connect_to_db()->query("Select * from post where id='$post_id';")->fetch());
-    if ($post->delete($bdd)) {
-        return true;
-    }
-    return false;
+    return $post->delete($bdd);
 }
 
 if (!delete_post()) {

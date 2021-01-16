@@ -1,6 +1,7 @@
 <?php
-
+require_once "autoload.php";
 require_once "session.php";
+include "connect-to-db.php";
 
 $message = "";
 if (isset($_SESSION["return value"])) {

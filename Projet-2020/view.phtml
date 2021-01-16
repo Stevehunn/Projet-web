@@ -6,6 +6,6 @@
 <p><?= $post->getContent() ?></p>
 <hr>
 <? if (isOwner($post)) { ?>
-    [<a href="post-update.php?id="<?= $post->getID() ?>>Modifier</a>]
-    [<a href="post-delete.php?id="<?= $post->getID() ?>>Supprimer</a>]
+    [<a href="post-update.php?id=<?= $post->getID() ?>">Modifier</a>]
+    [<a href="post-delete.php?id=<?= $post->getID() ?>">Supprimer</a>]
 <? } ?>

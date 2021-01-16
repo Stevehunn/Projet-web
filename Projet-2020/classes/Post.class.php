@@ -64,7 +64,7 @@ class Post
     {
         // Insert a new record to the database handled by $dbh.
         // $dbh can be an instance of mysqli or of PDO.
-        $sql = "INSERT INTO post (user_id,timestamp,title,content,photo) VALUES ('$this->userID', '$this->timestamp', '$this->title', '$this->content', '$this->photo')";
+        $sql = "INSERT INTO post (user_id,timestamp,title,content,photo) VALUES ('$this->userID', '$this->timestamp', '$this->title', '$this->content', '$this->photo');";
         if ($bdd->query($sql)->rowCount()) {
             $this->ID = $bdd->query("SELECT ID from post where user_id='$this->userID' AND timestamp='$this->timestamp';")->fetch()[0];
             return true;
@@ -76,7 +76,7 @@ class Post
     {
         // Update a record in the database handled by $dbh.
         // $dbh can be an instance of mysqli or of PDO.
-            $sql = "UPDATE post SET timestamp='$this->timestamp', title='$this->title', content='$this->content', photo='$this->photo' WHERE id='$this->ID'";
+        $sql = "UPDATE post SET timestamp='$this->timestamp', title='$this->title', content='$this->content', photo='$this->photo' WHERE id='$this->ID';";
             if ($bdd->query($sql)->rowCount()) {
                 return true;
             }
@@ -87,7 +87,7 @@ class Post
     {
         // Delete a record in the database handled by $dbh.
         // $dbh can be an instance of mysqli or of PDO.
-            $sql = "DELETE FROM post WHERE id='$this->ID'";
+        $sql = "DELETE FROM post WHERE id='$this->ID';";
             if ($bdd->query($sql)->rowCount()) {
                 return true;
             }
