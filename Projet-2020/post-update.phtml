@@ -1,4 +1,3 @@
-<h1>Modification d'une annonce</h1>
 <form method="post" action="do-post-update.php" enctype="multipart/form-data">
     <fieldset>
         <legend>Annonce</legend>
@@ -17,7 +16,8 @@
                     <label for="description">Description :</label>
                 </td>
                 <td>
-                    <input type="text" name="description" value="<?php echo $post->getContent() ?>" id="description"/>
+                    <textarea name="description" id="description" cols="40"
+                              rows="5"><?php echo $post->getContent() ?></textarea>
                 </td>
             </tr>
             <tr>
