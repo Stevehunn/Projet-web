@@ -5,6 +5,7 @@ require_once "session.php";
 $message = "";
 if (isset($_SESSION["return value"])) {
     $message = $_SESSION["return value"];
+    unset($_SESSION["return value"]);
 }
 
 require_once "header.phtml";

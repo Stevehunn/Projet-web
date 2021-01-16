@@ -6,6 +6,7 @@ include "connect-to-db.php";
 $message = "";
 if (isset($_SESSION["return value"])) {
     $message = $_SESSION["return value"];
+    unset($_SESSION["return value"]);
 }
 
 

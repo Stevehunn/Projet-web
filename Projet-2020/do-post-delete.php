@@ -24,7 +24,7 @@ if (!isset($_POST["submit"])) {
 function delete_post()
 {
     $bdd = connect_to_db();
-    $post_id = $_POST["post"];
+    $post_id = $_POST["id"];
     $post = new Post(connect_to_db()->query("Select * from post where id='$post_id';")->fetch());
     return $post->delete($bdd);
 }
